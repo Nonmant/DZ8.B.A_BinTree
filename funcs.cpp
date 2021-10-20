@@ -3,10 +3,10 @@
 #include "funcs.h"
 #include <bits/stdc++.h>
 
-struct BinThreeNode{
-    BinThreeNode * left, *right;
+struct BinTreeNode{
+    BinTreeNode * left, *right;
     int value;
-    explicit BinThreeNode(int value):
+    explicit BinTreeNode(int value):
             value(value),
             left(nullptr),right(nullptr){};
     void print(std::ostream & output, int depth) const{
@@ -25,13 +25,13 @@ struct BinThreeNode{
             return false;
         if(newVal<value){
             if(left == nullptr){
-                left = new BinThreeNode(newVal);
+                left = new BinTreeNode(newVal);
                 return true;
             }
             return left->add(newVal);
         } else {
             if(right == nullptr){
-                right = new BinThreeNode(newVal);
+                right = new BinTreeNode(newVal);
                 return true;
             }
             return right->add(newVal);
@@ -54,11 +54,11 @@ struct BinThreeNode{
     }
 };
 
-struct BinThree{
-    BinThreeNode * root;
+struct BinTree{
+    BinTreeNode * root;
     std::ostream & output;
 public:
-    explicit BinThree(std::ostream & output):
+    explicit BinTree(std::ostream & output):
             output(output), root(nullptr){}
     void print(){
         if(root != nullptr)
@@ -67,7 +67,7 @@ public:
     void add(int value){
         bool res;
         if(root == nullptr){
-            root = new BinThreeNode(value);
+            root = new BinTreeNode(value);
             res = true;
         } else {
             res = root->add(value);
@@ -88,7 +88,7 @@ public:
 };
 
 void parseFile(std::istream & input, std::ostream & output){
-    BinThree three(output);
+    BinTree three(output);
 
     std::string request;
     int val;

@@ -41,7 +41,7 @@ TEST_CASE("test 1, file", "[simple]"){
                             "NO\n");
 }
 
-TEST_CASE("both threes", ""){
+TEST_CASE("both trees", ""){
     std::stringstream input, output;
     input<<"ADD 0\n"
            "ADD -1\n"
@@ -66,14 +66,3 @@ TEST_CASE("both threes", ""){
             "0\n"
             ".1\n");
 }
-/*
-TEST_CASE("segment crossing 0", ""){
-    std::stringstream input, output;
-    input<<"1\n"
-           "0 1 2 1";
-    parseFile(input,output);
-    double S;
-    output >> S;
-    REQUIRE(S == Approx((2*M_PI - (2-1))/2).epsilon(1e-6) );
-}
-*/
